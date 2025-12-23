@@ -1,0 +1,165 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  .main-page {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Pricing */
+  .pricing {
+    margin-bottom: 3rem;
+  }
+  
+  .pricing h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .item {
+    position: relative;
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .item-name {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .item-price {
+    color: #333;
+  }
+  
+  /* Hover box */
+  .hover-box {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffdca8;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    font-size: 0.85rem;
+  }
+  
+  .item:hover .hover-box {
+    opacity: 1;
+  }
+  
+  /* Payment */
+  .payment {
+    margin-bottom: 3rem;
+  }
+  
+  .payment h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .payment p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Photos */
+  .photos {
+    margin-bottom: 4rem;
+  }
+  
+  .photos h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .photo-placeholder {
+    background: #ffe6cc;
+    height: 200px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aa7744;
+    font-style: italic;
+  }
+  
+  /* Corner Name */
+  .corner-name {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    color: rgba(200,160,120,0.3);
+    font-weight: bold;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* Floating chests */
+  .floating-chest {
+    position: absolute;
+    width: var(--size, 30px);
+    height: calc(var(--size, 30px) * 0.7);
+    background: linear-gradient(to bottom, #b08558, #8e623c);
+    border-radius: 4px 4px 8px 8px;
+    top: var(--top, 10%);
+    left: var(--left, 10%);
+    opacity: 0.25;
+    z-index: 0;
+    animation: floatUp var(--speed, 5s) infinite alternate ease-in-out;
+  }
+  
+  /* Lid for floating chests */
+  .floating-chest::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, #d4b08a, #b89263);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  /* Animations */
+  @keyframes floatUp {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-15px) translateX(5px); }
+    100% { transform: translateY(0) translateX(0); }
+  }
+  
