@@ -41,23 +41,41 @@ function closeModal() {
 
 closeBtn.addEventListener('click', closeModal);
 
-// Close on outside click
-window.addEventListener('click', (e) => {
-  if (e.target === modal) closeModal();
-});
 
-let mouseX = 0, mouseY = 0;
-let posX = 0, posY = 0;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+if (!cursor) {
+  console.error("Cursor element (.cursor-glow) not found!");
+} else {
+  let mouseX = 0, mouseY = 0;
+  let posX = 0, posY = 0;
 
-function animate() {
-  posX += (mouseX - posX) * 0.15;
-  posY += (mouseY - posY) * 0.15;
-  cursor.style.transform = `translate(${posX}px, ${posY}px)`;
-  requestAnimationFrame(animate);
+  // Track mouse movement
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Create a short-lived trail element
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    trail.style.left = `${mouseX}px`;
+    trail.style.top = `${mouseY}px`;
+    document.body.appendChild(trail);
+
+    setTimeout(() => {
+      trail.remove();
+    }, 600); // duration matches CSS animation
+  });
+
+  // Smoothly animate main glow
+  function animateGlow() {
+    const speed = 0.15; // adjust for trailing smoothness
+    posX += (mouseX - posX) * speed;
+    posY += (mouseY - posY) * speed;
+
+    cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+
+    requestAnimationFrame(animateGlow);
+  }
+
+  animateGlow();
 }
-animate();
