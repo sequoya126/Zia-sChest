@@ -1,6 +1,8 @@
 const track = document.getElementById('galleryTrack');
 const modal = document.getElementById('photoModal');
 const closeBtn = document.getElementById('closeBtn');
+const cursor = document.querySelector('.cursor-glow');
+
 
 // Open Modal logic
 let count = 0;
@@ -43,3 +45,19 @@ closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', (e) => {
   if (e.target === modal) closeModal();
 });
+
+let mouseX = 0, mouseY = 0;
+let posX = 0, posY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  posX += (mouseX - posX) * 0.15;
+  posY += (mouseY - posY) * 0.15;
+  cursor.style.transform = `translate(${posX}px, ${posY}px)`;
+  requestAnimationFrame(animate);
+}
+animate();

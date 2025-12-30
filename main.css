@@ -89,9 +89,15 @@ header p {
   width: 100%;
   overflow: hidden;
   background: #ffe6cc;
-  padding: 2.5rem 0;
+  padding: 2.5rem;
   border-radius: 12px;
   position: relative;
+}
+
+.gallery-box {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 2rem; /* side padding inside viewport */
 }
 
 .gallery-track {
@@ -99,6 +105,8 @@ header p {
   gap: 20px;
   width: max-content;
   animation: slideGallery 25s linear infinite;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .photo-item {
@@ -113,7 +121,7 @@ header p {
 /* Loop Animation: 9 items * (220px + 20px gap) = 2160px */
 @keyframes slideGallery {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-2160px); }
+  100% { transform: translateX(-2160px); } /* 2160 + 50 px padding */
 }
 
 /* Modal Overlay */
@@ -212,4 +220,23 @@ header p {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
   33% { transform: translate(30px, -50px) rotate(10deg); }
   66% { transform: translate(-20px, -20px) rotate(-5deg); }
+}
+
+/* cursor glow animation*/
+
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;          /* size of glow */
+  height: 40px;
+  background: rgba(255, 215, 0, 0.5); /* soft gold glow */
+  border-radius: 50%;
+  pointer-events: none; /* lets you click through it */
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease, opacity 0.2s ease;
+  filter: blur(15px);    /* soft glow */
+  z-index: 9999;
+  mix-blend-mode: lighten; /* optional for better glow effect */
 }

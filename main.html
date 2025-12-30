@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+ 
   <div class="main-page">
 
     <!-- Floating decorative chests -->
@@ -51,10 +51,11 @@
       <p>Please send payment to: <strong>zia.macleancourville@outlook.com</strong></p>
       <p>Please include a comment with the item name and amount purchased for each transaction!</p>
     </section>
-    
+  
     <section class="photos">
       <h2>Gallery (Taps: <span id="tapCounter">0</span>)</h2>
       <div class="gallery-viewport">
+        <div class="gallery-box">
         <div class="gallery-track" id="galleryTrack">
           <div class="photo-item" style="background: red;" data-title="Ruby Gem" data-price="$10" data-desc="A brilliant red stone."></div>
           <div class="photo-item" style="background: orange;" data-title="Amber Glow" data-price="$10" data-desc="Warm orange hues."></div>
@@ -72,6 +73,7 @@
           <div class="photo-item" style="background: green;"></div>
         </div>
       </div>
+    </div>
     </section>
     
     <div id="photoModal" class="modal-overlay">
@@ -93,7 +95,7 @@
   <div class="corner-name">ZIA</div>
 
   </div>
-
+  <div class="cursor-glow"></div>
   <script src="main.js"></script>
 </body>
 
