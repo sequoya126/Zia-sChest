@@ -1,54 +1,11 @@
+/* General paramathers*/
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.header-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-/* Circular logo container */
-.logo-circle {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: #fff;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-/* Logo image inside circle */
-.logo-circle img {
-  
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Text block */
-.header-text h1 {
-  font-size: 2.2rem;
-  color: #4b3b2a;
-  margin-bottom: 0.4rem;
-}
-
-.header-text p {
-  max-width: 500px;
-  color: #555;
-  font-size: 1.05rem;
-}
-
-
 .main-page {
   position: relative;
   z-index: 1;
@@ -97,6 +54,138 @@ body {
   padding: 20px;
 }
 
+
+/* Header code-----*/
+
+
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Circular logo container */
+.logo-circle {
+  width: 70px;
+  height: 70px;
+
+  margin-top: 10px;
+
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Logo image inside circle */
+.logo-circle img {
+  
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Text block */
+.header-text h1 {
+  font-size: 2.2rem;
+  color: #4b3b2a;
+  margin-bottom: 0.4rem;
+}
+
+.header-text p {
+  max-width: 500px;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 10vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 3rem;
+
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+
+  z-index: 10;
+  pointer-events: auto;
+}
+
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-item {
+  position: relative;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #1f2a44; /* cool contrast to beige */
+  transition: transform 0.2s ease;
+}
+
+/* Slight expansion */
+.header-item:hover {
+  transform: scale(1.05);
+}
+
+/* Underline */
+.header-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+.header-item:hover::after {
+  width: 100%;
+}
+
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.message {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.menu {
+  font-size: 1.2rem;
+}
+
 /* --- RESTORED HEADER & TEXT --- */
 header {
   text-align: center;
@@ -105,7 +194,7 @@ header {
 .message{
   position: relative;
   text-align: left;
-  
+
 }
 header h1 {
   font-size: 2.5rem;
@@ -120,9 +209,13 @@ header p {
   margin: 0 auto;
 }
 
-/* --- RESTORED PRICING & PAYMENT --- */
+/* --- Main content --- */
 .pricing, .payment {
-  margin-bottom: 3rem;
+  margin-top: 7em;
+}
+
+.pricing{
+  margin-top: 5px;
 }
 
 .item {
